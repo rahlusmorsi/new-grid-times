@@ -23,7 +23,10 @@ const MainStoryGrid = () => {
       <SecondaryStorySection>
         <StoryList>
           {SECONDARY_STORIES.map((story, index) => (
-            <SecondaryStory key={story.id} {...story} />
+            <>
+              {index !== 0 && <Hr />}
+              <SecondaryStory key={story.id} {...story} />
+            </>
           ))}
         </StoryList>
       </SecondaryStorySection>
@@ -32,7 +35,10 @@ const MainStoryGrid = () => {
         <SectionTitle>Opinion</SectionTitle>
         <StoryList>
           {OPINION_STORIES.map((story, index) => (
-            <OpinionStory key={story.id} {...story} />
+            <>
+              {index !== 0 && <Hr />}
+              <OpinionStory key={story.id} {...story} />
+            </>
           ))}
         </StoryList>
       </OpinionSection>
@@ -74,6 +80,12 @@ const OpinionSection = styled.section`
 
 const AdvertisementSection = styled.section`
   grid-area: advertisement;
+`;
+
+const Hr = styled.hr`
+  background: var(--color-gray-300);
+  height: 1px;
+  width: 100%;
 `;
 
 export default MainStoryGrid;
