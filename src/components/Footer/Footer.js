@@ -1,6 +1,7 @@
 import React from 'react';
 import { Twitter, Facebook } from 'react-feather';
 import styled from 'styled-components/macro';
+import { QUERIES } from '../../constants';
 import MaxWidthWrapper from '../MaxWidthWrapper';
 
 import VisuallyHidden from '../VisuallyHidden';
@@ -39,7 +40,7 @@ const Footer = () => {
           </Social>
         </TopRow>
         <MainNavArea>
-          <nav>
+          <NavGroup>
             <MainNavHeading>Discover Content</MainNavHeading>
             <MainNavList>
               <li>
@@ -58,8 +59,8 @@ const Footer = () => {
                 <a href="/oped">Opinion and Editorial</a>
               </li>
             </MainNavList>
-          </nav>
-          <nav>
+          </NavGroup>
+          <NavGroup>
             <MainNavHeading>Regional Websites</MainNavHeading>
             <MainNavList>
               <li>
@@ -78,8 +79,8 @@ const Footer = () => {
                 <a href="/au">New Grid Australia</a>
               </li>
             </MainNavList>
-          </nav>
-          <nav>
+          </NavGroup>
+          <NavGroup>
             <MainNavHeading>Careers</MainNavHeading>
             <MainNavList>
               <li>
@@ -92,8 +93,8 @@ const Footer = () => {
                 <a href="/culture">Company Culture</a>
               </li>
             </MainNavList>
-          </nav>
-          <nav>
+          </NavGroup>
+          <NavGroup>
             <MainNavHeading>Legal and Privacy</MainNavHeading>
             <MainNavList>
               <li>
@@ -112,7 +113,7 @@ const Footer = () => {
                 <a href="/tos">Terms and Conditions</a>
               </li>
             </MainNavList>
-          </nav>
+          </NavGroup>
         </MainNavArea>
       </MaxWidthWrapper>
       <SubfooterWrapper>
@@ -144,6 +145,16 @@ const TopRow = styled.div`
   font-size: 0.875rem;
   border-bottom: 1px solid var(--color-gray-700);
   padding: 24px 0;
+
+  @media ${QUERIES.tabletAndUp} {
+    flex-direction: row;
+    gap: 48px;
+    justify-content: center;
+  }
+
+  @media ${QUERIES.desktopAndUp} {
+    justify-content: flex-end;
+  }
 `;
 
 const Social = styled.div`
@@ -170,6 +181,12 @@ const MainNavArea = styled.div`
   gap: 32px;
   padding: 32px 0 48px;
   text-align: center;
+
+  @media ${QUERIES.tabletAndUp} {
+    flex-direction: revert;
+    text-align: revert;
+    flex-wrap: wrap;
+  }
 `;
 
 const MainNavHeading = styled.h2`
@@ -177,6 +194,13 @@ const MainNavHeading = styled.h2`
   font-weight: var(--font-weight-bold);
   color: var(--color-gray-300);
   margin-bottom: 8px;
+`;
+
+const NavGroup = styled.nav`
+  @media ${QUERIES.tabletAndUp} {
+    flex: 1;
+    min-width: 170px;
+  }
 `;
 
 const MainNavList = styled.ul`
@@ -196,6 +220,10 @@ const Subfooter = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+
+  @media ${QUERIES.desktopAndUp} {
+    align-items: revert;
+  }
 `;
 
 const Logo = styled.a`
