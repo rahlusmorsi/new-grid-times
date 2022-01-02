@@ -35,11 +35,13 @@ const SpecialtyStoryGrid = () => {
         >
           Sports
         </SectionTitle>
+        <SportsScroller>
         <SportsStories>
           {SPORTS_STORIES.map((data) => (
             <MiniStory key={data.id} {...data} />
           ))}
         </SportsStories>
+        </SportsScroller>
       </SportsSection>
     </Wrapper>
   );
@@ -51,7 +53,11 @@ const Wrapper = styled.div`
   --card-size: minmax(120px, 1fr);
 
   @media ${QUERIES.tabletAndUp} {
-    --card-size: minmax(220px, 1fr);
+    --card-size: minmax(180px, 1fr);
+  }
+
+  @media ${QUERIES.desktopAndUp} {
+    grid-template-columns: 1fr 1fr;
   }
 `;
 
@@ -64,13 +70,27 @@ const MarketCards = styled.div`
   gap: 1rem;
 `;
 
-const SportsSection = styled.section``;
+const SportsSection = styled.section`
+  overflow: auto;
+`;
+
+const SportsScroller = styled.div`
+  overflow: auto;
+`;
 
 const SportsStories = styled.div`
   display: grid;
   grid-template-columns:
     repeat(auto-fill, var(--card-size));
   gap: 1rem;
+
+  @media ${QUERIES.tabletAndUp} {
+    display: flex;
+
+    & article {
+      min-width: 180px;
+    }
+  }
 `;
 
 export default SpecialtyStoryGrid;
