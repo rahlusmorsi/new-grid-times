@@ -73,6 +73,7 @@ const Wrapper = styled.div`
     grid-template-columns: 477px 386px 273px;
     grid-template-areas:
       'main-story secondary-stories opinion-stories'
+      'main-story secondary-stories opinion-stories'
       'main-story advertisement advertisement';
   }
 `;
