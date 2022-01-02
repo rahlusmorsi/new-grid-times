@@ -113,6 +113,9 @@ const AdvertisementSection = styled.section`
 
 const Hr = styled.hr`
   background: var(--color-gray-300);
+  border-top: var(--color-gray-300);
+  border-bottom: var(--color-gray-300);
+  border-left: none;
   height: 1px;
   width: 100%;
   margin: 1rem 0;
